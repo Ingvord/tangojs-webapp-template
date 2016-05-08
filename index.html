@@ -42,11 +42,11 @@
       (function (window) {
         'use strict'
 
-        // Setup tangojs-connector-local.
+        // Setup tangojs-connector-mtango.
         const conn = new window.tangojs.connector.mtango.MTangoConnector(
-          'http://localhost:8080/mtango/rest/rc2', // endpoint
-          'tango',                                 // username
-          'tango')                                 // password
+          'http://172.18.0.5:8080/rest/rc2', // endpoint
+          'tango',                           // username
+          'tango')                           // password
 
         // Bind desired connector to TangoJS API.
         window.tangojs.core.setConnector(conn)
@@ -81,7 +81,7 @@
       <https://github.com/tangojs/tangojs-web-components>.
     -->
     <tangojs-trend
-      model="sys/tg_test/1/long_scalar,sys/tg_test/1/double_scalar"
+      model="sys/tg_test/1/long_scalar_w,sys/tg_test/1/double_scalar"
       poll-period="1000"
       data-limit="20">
     </tangojs-trend>
@@ -99,7 +99,7 @@
 
         const lineEdit = document.createElement('tangojs-line-edit')
 
-        lineEdit.setAttribute('model', 'sys/tg_test/1/long_scalar')
+        lineEdit.setAttribute('model', 'sys/tg_test/1/long_scalar_w')
         lineEdit.pollPeriod = 1000 // some attributes have reflected properties
         lineEdit.showName = true
         lineEdit.showQuality = true
